@@ -22,7 +22,7 @@ function varargout = IMP_GUI(varargin)
 
 % Edit the above text to modify the response to help IMP_GUI
 
-% Last Modified by GUIDE v2.5 11-Jun-2016 23:57:55
+% Last Modified by GUIDE v2.5 21-Jun-2016 10:33:40
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -207,3 +207,18 @@ subplot(3,2,3),imshow(BW1);title('Sobel边缘检测');
 subplot(3,2,4),imshow(BW2);title('Canny边缘检测');
 subplot(3,2,5),imshow(BW2);title('prewitt边缘检测');
 subplot(3,2,6),imshow(BW2);title('log边缘检测');
+
+
+% --- Executes on button press in pushbutton10.
+function pushbutton10_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+clear
+I=imread('test.tif');
+gray=rgb2gray(I);
+J=imadjust(gray,[0.3,0.7],[]);
+subplot(2,2,1),imshow(gray);title('原始灰度图像');
+subplot(2,2,2),imshow(J);title('调整对比度后的灰度图像');
+subplot(2,2,3),imhist(gray);title('原始灰度图像直方图');
+subplot(2,2,4),imhist(J);title('    调整对比度后的灰度图像直方图');
